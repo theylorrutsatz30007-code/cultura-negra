@@ -131,6 +131,7 @@ nav#main-nav a.active {
     position: absolute;
     top: 25px;
     right: 25px;
+    z-index: 100; /* Garante que o menu fique na frente de outros elementos */
 }
 
 .desktop-nav { display: none; } /* Esconde os botões de desktop por padrão */
@@ -452,6 +453,7 @@ footer {
         position: absolute;
         top: 90px; /* Ajuste conforme a altura do seu cabeçalho */
         left: 0;
+        z-index: 99; /* Garante que o menu expandido fique sobre o conteúdo */
         padding: 10px 0;
     }
 
