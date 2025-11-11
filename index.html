@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Maria de Jesus - Escritora e Catadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="carolina-theme">
+    <header>
+        <div class="container">
+            <h1>Carolina Maria de Jesus</h1>
+            <nav id="main-nav">
+                <a href="index.html" class="active">Carolina M. de Jesus</a>
+                <a href="capoeira.html">Capoeira</a>
+                <a href="machado-de-assis.html">Machado de Assis</a>
+                <a href="angela-davis.html">Angela Davis</a>
+            </nav>
+            <button class="hamburger-menu" id="hamburger-menu">&#9776;</button>
+            <p>A escritora, cantora, compositora e poetisa brasileira que deu voz à favela.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="biografia" class="card">
+            <h2>Biografia Breve</h2>
+            <div class="bio-content">
+                <p>Nascida em Sacramento, Minas Gerais, em 14 de março de 1914, Carolina Maria de Jesus mudou-se para São Paulo e viveu grande parte de sua vida na **Favela do Canindé**. Ela sustentava a si mesma e seus três filhos (João José, José Carlos e Vera Eunice) como **catadora de papéis**.</p>
+                <p>Com apenas dois anos de estudo formal, ela desenvolveu um profundo amor pela leitura e, nos cadernos que encontrava no lixo, registrava o seu dia-a-dia, que viria a se tornar sua obra mais famosa.</p>
+                <a id="toggle-bio" class="button-link" href="https://www.ebiografia.com/carolina_maria_de_jesus/" target="_blank" rel="noopener noreferrer">biografia mais</a>
+            </div>
+        </section>
+
+        <section id="quarto-despejo" class="card">
+            <h2>"Quarto de Despejo: Diário de uma Favelada"</h2>
+            <p>Seu primeiro e mais conhecido livro foi publicado em 1960, com a ajuda do jornalista Audálio Dantas. A obra é um **diário** que relata com brutalidade e sensibilidade a luta diária contra a fome, a desigualdade e a miséria.</p>
+            <blockquote id="citacao">
+                <p>"A fome é a melhor professora. Ensina a gente a viver com o pouco que tem."</p>
+                <footer></footer>
+            </blockquote>
+        </section>
+
+        <section id="outras-obras" class="card">
+            <h2>Outras Obras Notáveis</h2>
+            <ul>
+                <li>**Casa de Alvenaria: Diário de uma Ex-Favelada** (1961)</li>
+                <li>**Pedaços da Fome** (1963)</li>
+                <li>**Provérbios** (1963)</li>
+                <li>**Diário de Bitita** (póstumo)</li>
+            </ul>
+        </section>
+        
+        <section id="legado" class="card">
+            <h2>Legado e Reconhecimento</h2>
+            <p>Carolina Maria de Jesus é considerada uma das vozes mais importantes da literatura brasileira, sendo uma **precursora da literatura negra e periférica** no país. Sua obra continua sendo estudada e ganha novas adaptações, como o futuro filme de "Quarto de Despejo".</p>
+        </section>
+
+    <section id="cultura" class="card">
+        <h2>Cultura e Resistência</h2>
+        <p>Assim como a escrita de Carolina, a cultura afro-brasileira criou diversas formas de resistência e expressão. A capoeira é um exemplo poderoso de arte que nasceu da luta por liberdade.</p>
+        <a href="capoeira.html" class="action-button">Conheça a História da Capoeira</a>
+    </section>
+
+    <section id="outros-autores" class="card desktop-nav">
+        <h2>Grandes Nomes da Literatura</h2>
+        <p>A literatura brasileira é rica e diversa. Conheça também a história de Machado de Assis, outro gigante que revolucionou as letras no país.</p>
+        <a href="machado-de-assis.html" class="action-button">Conheça Machado de Assis</a>
+    </section>
+
+    <section id="outros-icones" class="card">
+        <h2>Ícones da Luta Antirracista</h2>
+        <p>Conheça também a história de Angela Davis, uma filósofa e ativista que se tornou um símbolo global da luta pelos direitos civis e contra o racismo.</p>
+        <a href="angela-davis.html" class="action-button">Conheça Angela Davis</a>
+    </section>
+
+
+    <section id="carrossel" class="card">
+        <h2>imagems historicas</h2>
+        <div class="carousel-container">
+            <button id="prevBtn" class="carousel-arrow prev">&#10094;</button>
+            <div class="carousel-slide">
+               <img src="machado de assis 1.jpg" alt="Machado de Assis" loading="lazy">
+                <img src="Machado de Assis  2.jpg" alt="Machado de Assis escrevendo" loading="lazy">
+                <img src="machado de assis 3.jfif" alt="Retrato antigo de Machado de Assis" loading="lazy">
+                <img src="capoeira1.jpg" alt="Roda de capoeira ao ar livre" loading="lazy">
+                <img src="capoeira 2.webp" alt="Capoeiristas em ação" loading="lazy">
+                <img src="capoeira 3.webp" alt="Instrumentos de capoeira" loading="lazy">
+                <img src="carolina 1.jfif" alt="Carolina Maria de Jesus" loading="lazy">
+                <img src="carolina 2.jpg" alt="Carolina escrevendo em seu diário" loading="lazy">
+                <img src="carolina 3.jfif" alt="Retrato antigo de Carolina Maria de Jesus" loading="lazy">
+            </div>
+            <button id="nextBtn" class="carousel-arrow next">&#10095;</button>
+        </div>
+    </section>
+</main>
+    <footer>
+        <p>&copy; 2024 | Site em homenagem à Carolina Maria de Jesus</p>
+    </footer>   
+
+    <!-- Modal para zoom da imagem -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,691 @@
+/* Estilização Geral e Reset */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+:root {
+    /* Paleta vibrante: vermelho, amarelo, roxo e azul */
+    --bg: #fbfbfc;
+    --text: #222222;
+    --red: #e53935;      /* vibrante */
+    --yellow: #ffd400;   /* amarelo forte */
+    --purple: #4a148c;   /* roxo mais escuro (ajustado) */
+    --blue: #1e88e5;     /* azul vivo */
+    /* Tornando roxo a cor predominante (tom mais escuro) */
+    --card-accent: var(--purple);
+    --header-bg: linear-gradient(135deg, #4a148c 0%, #6a1b9a 60%); /* degradê roxo escuro -> roxo */
+    --button-bg: var(--purple);
+    --button-hover: #2e0b4e; /* roxo ainda mais escuro no hover */
+    --footer-bg: #2e0b4e; /* roxo escuro para o rodapé */
+}
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 700; /* texto em negrito conforme solicitado */
+    font-size: 18px; /* aumentar tamanho base do texto */
+}
+
+/* --- Estilização da Barra de Rolagem com Todas as Cores --- */
+
+/* Para Firefox */
+html {
+    scrollbar-width: thin; /* 'auto' ou 'thin' */
+    /* O Firefox não suporta gradientes na scrollbar, então usamos a cor de destaque do tema atual */
+    scrollbar-color: var(--card-accent) var(--bg);
+}
+
+/* Para navegadores baseados em WebKit (Chrome, Safari, Edge, etc.) */
+::-webkit-scrollbar {
+    width: 14px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg); /* Cor de fundo da trilha (usa o fundo da página) */
+}
+
+::-webkit-scrollbar-thumb {    
+    background: linear-gradient(180deg, #c62828, #ffc107, #2e7d32, #5d4037); /* Gradiente com todas as cores */
+    border-radius: 10px;
+    border: 3px solid var(--bg); /* Cria uma pequena borda ao redor do polegar */
+}
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em; /* maior titulo */
+    display: inline-block;
+    padding-bottom: 6px;
+    border-bottom: none; /* removida a tarja/underline */
+    animation: fadeInDown 1s ease-out; /* Animação de entrada */
+}
+
+/* --- Navegação Principal --- */
+nav#main-nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+/* Por padrão (mobile-first), a navegação principal está escondida */
+nav#main-nav {
+    display: none;
+}
+
+nav#main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid transparent;
+}
+
+nav#main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav#main-nav a.active {
+    border-color: #fff; /* Destaca o link da página atual */
+    color: #fff;
+}
+
+/* --- Botão Hamburger --- */
+.hamburger-menu {
+    display: block; /* Visível por padrão (mobile) */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.desktop-nav { display: none; } /* Esconde os botões de desktop por padrão */
+
+header p {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: 1.05rem; /* parágrafos levemente maiores */
+}
+
+/* Conteúdo Principal e Cards */
+main {
+    padding: 20px 0;
+}
+
+.card {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #e0b445;
+}
+.card {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    border-left: 6px solid var(--card-accent);
+    /* Animação para os cards entrarem */
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa um pouco para baixo */
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.5s; /* Atraso para começar depois do título */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transição suave para o hover */
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02); /* Eleva e aumenta o card */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Aumenta a sombra para dar profundidade */
+    border-left-color: #e91e63; /* Cor rosa para a borda */
+}
+
+.card h2 {
+    color: #a0522d; /* Cor terrosa */
+    margin-top: 0;
+}
+.card h2 {
+    color: var(--purple);
+    margin-top: 0;
+    font-size: 1.6rem;
+    transition: font-size 0.3s ease; /* Adiciona transição suave para o tamanho da fonte */
+}
+
+.card:hover h2 {
+    font-size: 1.65rem; /* Aumenta levemente o subtítulo no hover */
+}
+
+/* Ajuste geral para elementos de texto */
+p, li {
+    font-size: 1.05rem;
+    transition: font-size 0.3s ease; /* Adiciona transição suave para o tamanho da fonte */
+}
+
+.card:hover p,
+.card:hover li {
+    font-size: 1.08rem; /* Aumenta levemente o texto no hover */
+}
+
+/* Botão de Ação */
+#toggle-bio {
+    background-color: #a0522d;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.action-button {
+    background-color: var(--button-bg);
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.25s, transform 0.12s;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.action-button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-1px);
+}
+
+/* Citação */
+blockquote {
+    border-left: 4px solid #333;
+    margin: 20px 0;
+    padding-left: 20px;
+    color: #555;
+    font-style: italic;
+    font-size: 1.1em;
+}
+blockquote {
+    border-left: 6px solid var(--purple);
+    margin: 20px 0;
+    padding-left: 22px;
+    color: #444;
+    font-style: italic;
+    font-size: 1.1em;
+    background: linear-gradient(90deg, rgba(74,20,140,0.04), transparent);
+    padding: 14px 20px;
+    border-radius: 6px;
+}
+
+blockquote footer {
+    display: block;
+    margin-top: 10px;
+       font-style: normal;
+    font-size: 0.9em;
+    text-align: right;
+    color: #333;
+}
+
+/* Lista de Obras */
+#outras-obras ul {
+    list-style: square;
+    padding-left: 20px;
+}
+
+#outras-obras li {
+    margin-bottom: 5px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+footer {
+    background-color: var(--footer-bg);
+    color: #fff;
+    text-align: center;
+    padding: 18px 0;
+    margin-top: 20px;
+}
+
+/* Estilos para o Carrossel */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    width: %; /* A imagem individual preencherá este espaço */
+    transition: transform 0.7s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%; /* A imagem ocupa todo o espaço do slide */
+    max-height: 400px; /* Define uma altura máxima para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Garante que a imagem fique centralizada */
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Setas de navegação do carrossel */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-arrow.prev {
+    left: 10px;
+}
+
+.carousel-arrow.next {
+    right: 10px;
+}
+
+/* Modal para zoom da imagem */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 100;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation: zoomIn 0.6s;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Animação para o título principal */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação para os cards de conteúdo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Para tablets e celulares (telas até 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Reduz o tamanho base da fonte */
+        font-weight: 400; /* Texto normal em telas menores para melhor legibilidade */
+    }
+
+    .container {
+        width: 95%; /* Usa mais espaço da tela */
+    }
+
+    header {
+        padding: 30px 0;
+    }
+
+    header h1 {
+        font-size: 2.2em; /* Reduz o título principal */
+    }
+
+    header h1, header p {
+        /* Adiciona um espaçamento à direita para não sobrepor o menu */
+        padding-right: 50px; 
+        padding-left: 50px; /* Equilibra o espaçamento no lado esquerdo */
+    }
+
+    .card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Desativa o efeito de zoom nos cards em dispositivos de toque para evitar comportamento inesperado */
+    .card:hover {
+        transform: translateY(-5px); /* Mantém apenas a elevação */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transform: none; /* Remove o scale e o translate */
+    }
+
+    nav#main-nav {
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 90px; /* Ajuste conforme a altura do seu cabeçalho */
+        left: 0;
+        padding: 10px 0;
+    }
+
+    nav#main-nav.active {
+        display: flex; /* Mostra o menu quando a classe 'active' é adicionada */
+        animation: fadeInDown 0.5s;
+    }
+}
+
+/* Para telas de PC (maiores que 768px) */
+@media (min-width: 769px) {
+    .hamburger-menu { display: none; } /* Esconde o botão hamburger */
+    nav#main-nav { display: none !important; } /* Garante que a nav do mobile não apareça */
+    .desktop-nav { display: block; } /* Mostra os botões de navegação do desktop */
+}
+
+/* --- Tema Específico para a Página de Machado de Assis --- */
+
+.machado-theme {
+    /* Sobrescreve as variáveis de cor para um tema sóbrio */
+    --header-bg: #3e2723; /* Marrom escuro, quase preto */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Fonte clássica para um ar nobre */
+    --footer-bg: #3e2723;
+    --card-accent: #5d4037; /* Tom de sépia/marrom */
+    --button-bg: #5d4037;
+    --button-hover: #3e2723;
+    --purple: #5d4037; /* Substitui o roxo nos títulos h2 */
+}
+
+.machado-theme header {
+    background: var(--header-bg); /* Remove o gradiente, usa cor sólida */
+}
+
+.machado-theme blockquote {
+    background: linear-gradient(90deg, rgba(93,64,55,0.05), transparent);
+    border-left-color: var(--card-accent);
+}
+
+.machado-theme .card:hover {
+    transform: translateY(-5px); /* Remove o efeito de zoom (scale) */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-left-color: #8d6e63; /* Um tom de marrom mais claro no hover */
+}
+
+.machado-theme .card:hover h2,
+.machado-theme .card:hover p,
+.machado-theme .card:hover li {
+    font-size: inherit; /* Desativa o aumento da fonte no hover */
+}
+
+/* Estilo nobre para as curiosidades de Machado */
+.machado-theme #curiosidades .curiosidade-item {
+    padding-top: 1.2rem;
+    margin-top: 1.5rem;
+    border-top: 1px dotted #a1887f; /* Linha pontilhada para um visual mais clássico */
+}
+
+.machado-theme #curiosidades .curiosidade-item:first-child {
+    border-top: none; /* Remove a linha do primeiro item */
+    margin-top: 0;
+    padding-top: 0.5rem;
+}
+
+.machado-theme #curiosidades h4 {
+    font-size: 1.15rem;
+    color: #3e2723; /* Marrom escuro para o título da curiosidade */
+    font-weight: normal; /* Peso normal para elegância */
+    font-style: italic; /* Itálico para um toque clássico */
+    margin-bottom: 0.5rem;
+}
+
+.machado-theme #curiosidades .emoji {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.8; /* Deixa o emoji um pouco mais sutil */
+    font-style: normal; /* Garante que o emoji não fique em itálico */
+}
+
+/* --- Estilos Genéricos para o Acordeão de Curiosidades --- */
+.curiosidade-title {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Espaço para o indicador +/- */
+    transition: color 0.3s;
+}
+
+.curiosidade-title:hover {
+    color: var(--button-hover);
+}
+
+.curiosidade-title::after {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte sem serifa para o sinal */
+    font-style: normal;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.curiosidade-item.active .curiosidade-title::after {
+    content: '−'; /* Sinal de menos */
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.curiosidade-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.4s ease-out;
+    padding: 0 10px;
+}
+
+
+/* Estilos para o Acordeão de Curiosidades */
+.machado-theme .curiosidade-title {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Espaço para o indicador +/- */
+}
+
+.machado-theme .curiosidade-title::after {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte sem serifa para o sinal */
+    font-style: normal;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.machado-theme .curiosidade-item.active .curiosidade-title::after {
+    content: '−'; /* Sinal de menos */
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* --- Tema Específico para a Página de Capoeira --- */
+
+.capoeira-theme {
+    /* Sobrescreve as variáveis para um tema inspirado na capoeira */
+    /* Verde para as matas, Amarelo para a energia, Azul para o céu */
+    --header-bg: #2e7d32; /* Verde escuro para o cabeçalho */
+    --footer-bg: #2e7d32; /* Verde escuro para o rodapé */
+    --card-accent: #2e7d32; /* Borda verde nos cards */
+    --button-bg: #ffc107; /* Amarelo/dourado para os botões */
+    --button-hover: #ffa000; /* Amarelo mais escuro no hover */
+    --purple: #2e7d32; /* Substitui o roxo dos títulos h2 pelo verde */
+}
+
+.capoeira-theme header {
+    background: var(--header-bg); /* Cor sólida, sem gradiente */
+}
+
+.capoeira-theme .card:hover {
+    border-left-color: #1976d2; /* Borda azul no hover para representar o céu/paz */
+}
+
+.capoeira-theme blockquote {
+    background: linear-gradient(90deg, rgba(46,125,50,0.05), transparent);
+    border-left-color: var(--card-accent);
+}
+
+/* --- Tema Específico para a Página de Carolina Maria de Jesus --- */
+
+.carolina-theme {
+    /* Sobrescreve as variáveis para o tema de Carolina */
+    /* Preto (resistência), Amarelo (sol/natureza), Azul (céu/sonho) */
+    --header-bg: #212121; /* Preto para o cabeçalho, representando a luta e a realidade */
+    --footer-bg: #212121; /* Preto/cinza escuro para o rodapé, representando identidade */
+    --card-accent: #212121; /* Borda preta nos cards */
+    --button-bg: #ffc107; /* Amarelo para os botões, simbolizando o sol */
+    --button-hover: #ffa000; /* Amarelo mais escuro no hover */
+    --purple: #212121; /* Substitui o roxo dos títulos h2 pelo preto/cinza escuro */
+}
+
+.carolina-theme header {
+    /* Gradiente com todas as cores dos temas para a página principal */
+    background: linear-gradient(135deg, 
+        #ffffff, /* Vermelho (Carolina) */
+        #acadaf, /* Amarelo (Capoeira) */
+        #357eeb, /* Verde (Capoeira) */
+        #0066ff  /* Marrom (Machado) */
+    );
+}
+
+.carolina-theme .card:hover {
+    border-left-color: #1e88e5; /* Borda azul no hover, representando o céu e a liberdade */
+}
+
+.carolina-theme blockquote {
+    background: linear-gradient(90deg, rgba(33,33,33,0.05), transparent);
+    border-left-color: var(--card-accent);
+}
+
+/* --- Tema Específico para a Página de Angela Davis --- */
+
+.angela-davis-theme {
+    /* Laranja forte para simbolizar energia, luta e paixão */
+    --header-bg: #e65100; /* Laranja escuro e vibrante */
+    --footer-bg: #e65100;
+    --card-accent: #e65100;
+    --button-bg: #e65100;
+    --button-hover: #bf360c; /* Laranja mais profundo no hover */
+    --purple: #bf360c; /* Substitui o roxo dos títulos h2 */
+}
+
+.angela-davis-theme header {
+    background: var(--header-bg); /* Cor sólida */
+}
+
+.angela-davis-theme blockquote {
+    background: linear-gradient(90deg, rgba(230,81,0,0.05), transparent);
+    border-left-color: var(--card-accent);
+}
+
+/* Estilos para as curiosidades de Angela Davis */
+.angela-davis-theme #curiosidades .curiosidade-item {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid #ffcc80; /* Laranja claro */
+}
+
+.angela-davis-theme #curiosidades .curiosidade-item:first-child {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.angela-davis-theme #curiosidades h4 {
+    font-size: 1.1rem;
+    color: var(--purple); /* Usa a cor de destaque do tema */
+}
