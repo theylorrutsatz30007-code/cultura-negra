@@ -689,3 +689,39 @@ footer {
     font-size: 1.1rem;
     color: var(--purple); /* Usa a cor de destaque do tema */
 }
+
+/* --- Tema Específico para a Página da Lei Áurea --- */
+
+.lei-aurea-theme {
+    /* Dourado para a "Lei Áurea", com um fundo escuro para solenidade */
+    --header-bg: #2c2a2a; /* Cinza bem escuro */
+    --footer-bg: #2c2a2a;
+    --header-bg: #111111; /* Preto para solenidade */
+    --footer-bg: #111111; /* Preto */
+    --card-accent: #d4af37; /* Dourado/Ouro */
+    --button-bg: #d4af37;
+    --button-hover: #b89b30; /* Dourado mais escuro */
+    --button-bg: #222222; /* Botão preto */
+    --button-hover: #000000; /* Preto mais escuro no hover */
+    --purple: #000000; /* Títulos h2 em preto */
+    --text: #ffffff; /* Texto branco para botões (mantido) */
+}
+
+.lei-aurea-theme header {
+    background: var(--header-bg);
+}
+
+.lei-aurea-theme blockquote {
+    background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent);
+    border-left-color: var(--card-accent);
+}
+
+.lei-aurea-theme .action-button {
+    color: var(--text); /* Garante que o texto do botão seja branco */
+}
+
+.lei-aurea-theme .card p,
+.lei-aurea-theme .card li {
+    color: #000000; /* Garante que o texto dos parágrafos e listas seja preto */
+}
+}
