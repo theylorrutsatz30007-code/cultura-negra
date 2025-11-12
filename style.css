@@ -718,6 +718,33 @@ footer {
     border-left-color: var(--card-accent);
 }
 
+/* --- Tema Específico para a Página de Eugenia Racial --- */
+.eugenia-theme {
+    /* Cores para refletir a ideologia da eugenia:
+       Branco (pureza racial), Preto (raças inferiores), Cinza (mistura/degeneração) */
+    --header-bg: linear-gradient(135deg, #f0f0f0 0%, #ffffff 100%); /* Branco/cinza claro para "pureza" */
+    --footer-bg: #f0f0f0; /* Cinza claro */
+    --card-accent: #cccccc; /* Cinza médio para "mistura" ou frieza */
+    --button-bg: #222222; /* Preto/cinza escuro para o lado sombrio da ideologia */
+    --button-hover: #000000; /* Preto puro no hover */
+    --purple: #222222; /* Títulos em preto/cinza escuro */
+    --text: #333333; /* Texto padrão escuro para legibilidade */
+}
+
+.eugenia-theme header {
+    background: var(--header-bg);
+    color: var(--text); /* Garante que o texto do cabeçalho seja legível */
+}
+
+.eugenia-theme header h1,
+.eugenia-theme header p {
+    color: var(--text); /* Garante que o texto do cabeçalho seja legível */
+}
+
+.eugenia-theme blockquote {
+    background: linear-gradient(90deg, rgba(128,128,128,0.05), transparent); /* Cinza sutil para o fundo da citação */
+    border-left-color: var(--card-accent);
+}
 .lei-aurea-theme .action-button {
     color: var(--text); /* Garante que o texto do botão seja branco */
 }
