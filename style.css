@@ -773,23 +773,24 @@ footer {
 
 /* --- Tema Específico para a Página de Michael Jackson --- */
 .michael-jackson-theme {
-    /* Vermelho, preto e dourado para o Rei do Pop */
+    /* Vermelho, preto e branco para o Rei do Pop */
     --header-bg: #c62828; /* Vermelho vibrante, como a jaqueta de Thriller */
     --footer-bg: #111111; /* Preto */
     --card-accent: #c62828; /* Vermelho */
-    --button-bg: #ffd600; /* Dourado/Amarelo para os botões */
-    --button-hover: #ffab00; /* Dourado mais escuro no hover */
+    --button-bg: #ffffff; /* Botão branco */
+    --button-hover: #f0f0f0; /* Branco um pouco mais escuro no hover */
     --purple: #111111; /* Títulos h2 em preto */
 }
 
 .michael-jackson-theme header {
-    background: var(--header-bg);
+    background: var(--header-bg); /* Cabeçalho vermelho */
 }
 
 .michael-jackson-theme .card:hover {
-    border-left-color: #ffd600; /* Borda dourada no hover */
+    border-left-color: #111111; /* Borda preta no hover para contraste */
 }
 
 .michael-jackson-theme .action-button {
-    color: #000000; /* Texto preto para melhor contraste no botão dourado */
+    color: #000000; /* Texto preto para melhor contraste no botão branco */
+    border: 1px solid #cccccc; /* Adiciona uma borda sutil ao botão branco */
 }
